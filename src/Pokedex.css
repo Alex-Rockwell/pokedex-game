@@ -1,4 +1,24 @@
 .Pokedex {
   max-width: 980px;
-  margin: 0 auto;
+  margin: 0 auto 0;
+  padding: 10px 0 0;
+}
+
+.Pokedex-header-1 {
+  margin: 0 0 5px;
+  font-weight: 600;
+}
+
+.Pokedex-win {
+  color: rgb(34, 143, 34);
+}
+
+.Pokedex-loose {
+  color: red;
+}
+
+.Pokedex-header-2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
 }

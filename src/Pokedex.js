@@ -4,42 +4,20 @@ import './Pokedex.css'
 
 class Pokedex extends Component {
   render(){
-    const cards = [
-      {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
-      {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
-      {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
-      {id: 12, name: 'Butterfree', type: 'flying', base_experience: 178},
-      {id: 25, name: 'Pikachu', type: 'electric', base_experience: 112},
-      {id: 39, name: 'Jigglypuff', type: 'normal', base_experience: 95},
-      {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
-      {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
-    ]
+    console.log(this.props.win)
+    const hand = this.props.hand
+    const dispCards = hand.map((c) => {
+      return <Pokecard id={c.id} name={c.name} type={c.type} base_experience={c.base_experience}/>
+    })
+
+    const heading1 = this.props.win 
+      ? <h2 className="Pokedex-header-1 Pokedex-win">Winning hand</h2>
+      : <h2 className="Pokedex-header-1 Pokedex-loose"> Loosing hand</h2>
     return (
       <div className="Pokedex">
-        <Pokecard 
-          id={4}
-          name="Charmander"
-          type="fire"
-          base_experience={62}
-        />
-        <Pokecard 
-          id={4}
-          name="Charmander"
-          type="fire"
-          base_experience={62}
-        />
-        <Pokecard 
-          id={4}
-          name="Charmander"
-          type="fire"
-          base_experience={62}
-        />
-        <Pokecard 
-          id={4}
-          name="Charmander"
-          type="fire"
-          base_experience={62}
-        />
+        {heading1}
+        <h2 className="Pokedex-header-2">Total expience: {this.props.exp}</h2>
+        {dispCards}
       </div>
     )
   }
