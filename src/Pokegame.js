@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import Pokedex from "./Pokedex";
 
-function totalExp(hand) {
-  let exp = 0
-  hand.forEach(el => {
-    exp += el.base_experience
-  })
-  return exp
-}
-
 class Pokegame extends Component {
   render() {
     const cards = [
@@ -23,15 +15,15 @@ class Pokegame extends Component {
     ]
 
     const hand1 = []
-    for (let i=0; i<4; i++) {
+    const hand2 = cards
+    while (hand1 < hand2) {
       let random = Math.floor(Math.random()*cards.length)
       let removed = cards.splice(random, 1)
       hand1.push(removed[0])
     }
-    const hand2 = cards
 
-    const hand1exp = totalExp(hand1)
-    const hand2exp = totalExp(hand2)
+    const hand1exp = hand1.reduce((total, el) => total + el.base_experience, 0)
+    const hand2exp = hand2.reduce((total, el) => total + el.base_experience, 0)
 
     return (
       <div>
@@ -39,13 +31,13 @@ class Pokegame extends Component {
           num='1'
           hand={hand1} 
           exp={hand1exp}  
-          win={hand1exp > hand2exp ? true : false}
+          win={hand1exp > hand2exp}
         />
         <Pokedex 
           num='2'
           hand={hand2} 
           exp={hand2exp}
-          win={hand1exp < hand2exp ? true : false}
+          win={hand1exp < hand2exp}
         />
       </div>
     )

@@ -23,7 +23,7 @@ class Pokecard extends Component {
         </div>
         <h2  className="Pokecard-name">{this.props.name}</h2>
         <p className="Pokecard-text">Tipe: {this.props.type}</p>
-        <p className="Pokecard-text">EXP: {this.props.base_experience}</p>
+        <p className="Pokecard-text">EXP: {this.props.exp}</p>
       </div>
     )
   }

@@ -1,11 +1,13 @@
 .Pokecard {
   display: inline-block;
   width: 220px;
-  margin: 10px 10px 20px;
+  margin: 10px 10px 15px;
   padding-bottom: 20px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 8px 16px 0 #ccc;
+  border-radius: 2px;
+  transition: .6s ease;
   animation-name: move;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
@@ -13,14 +15,18 @@
   animation-fill-mode: backwards;
 }
 
+.Pokecard:hover {
+  transform: scale(1.07);
+}
+
 .Pokecard-img {
   width: 150px;
   transition: .5s ease-in-out;
 }
 
-.Pokecard-img:hover {
+/* .Pokecard-img:hover {
   transform: scale(1.2);  
-}
+} */
 
 .Pokecard-text {
   margin: 0;
@@ -40,7 +46,7 @@
 @keyframes move {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   100% {
     opacity: 1;
